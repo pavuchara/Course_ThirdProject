@@ -41,9 +41,9 @@
 					<td>{{ person.name }}</td>
 					<td>{{ person.age }}</td>
 					<td>
-						<a href="edit/{{ person.id }}">Изменить</a>
+						<a href="{% url 'crud:edit_user' person.id %}">Изменить</a>
 						 |
-						<a href="delete/{{ person.id }}">Удалить</a>
+						<a href="{% url 'crud:delete_user' person.id %}">Удалить</a>
 					</td>
 				</tr>
 			{% endfor %}
