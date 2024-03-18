@@ -7,18 +7,16 @@
 <body>
   <form method="POST">
     {% csrf_token %}
-    <p>
-      <label>Введите новое имя</label>
-      <input type="text" name="name" value="{{ person.name }}">
-    </p>
-
-    <p>
-      <label>Введите возраст</label>
-      <input type="number" name="age" value="{{ person.age }}">
-    </p>
-    <p>
-      <input type="submit" value="Сохранить">
-    </p>
+    <table>
+      <tbody>
+        {{ form.as_table }}
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" value="Сохранить">
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </form>
 </body>
 </html>

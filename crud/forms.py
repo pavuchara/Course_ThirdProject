@@ -1,18 +1,11 @@
-from django import forms
+from django.forms import ModelForm, CharField, IntegerField
+from .models import Person
 
 
-class UserForm(forms.Form):
-    name = forms.CharField(
-        label='Имя',
-        help_text='Введите свое имя',
-        min_length=2,
-        max_length=10,
-    )
-    age = forms.IntegerField(
-        label='Ваш возраст?',
-        help_text='Введите свой возраст',
-    )
-    reklama = forms.BooleanField(
-        label='Согласны получать рекламу?',
-        required=False,
-    )
+class PersonForm(ModelForm):
+    name = CharField(label='Введите имя')
+    age = IntegerField(label='Введите возраст')
+
+    class Meta:
+        model = Person
+        fields = ['name', 'age']
